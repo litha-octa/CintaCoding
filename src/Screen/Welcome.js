@@ -1,6 +1,7 @@
 import React from 'react'
 import {LoginPic} from "../Asset/image";
 import '../Asset/style/login.css'
+import {Link} from "react-router-dom";
 
 const Welcome = () => {
     return (
@@ -8,7 +9,9 @@ const Welcome = () => {
             <nav>
                 <div className={'titleNav'}>cinta coding</div>
                 <button className={'btnNav'}>
+                    <Link to ='/Login'>
                     Login
+                    </Link>
                 </button>
 
             </nav>

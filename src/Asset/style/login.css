@@ -1,5 +1,5 @@
 *{margin:0}
-/*WELCOME FILE*/
+/*WELCOME PAGE*/
 nav{
     width: 100%;
     height: auto;
@@ -51,6 +51,37 @@ nav{
     margin-left: 30vw;
 }
 }
-.bodyLogin{
-    background-color: orange;
+
+/*LOGIN PAGE*/
+.body{
+    width:100%;
+    height: auto;
+    position: absolute;
+    padding:0% 0%;
+}
+.form{
+    width: 20%;
+    height: auto;
+    margin:10% 40%;
+}
+.form-name{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0 0 20% 0;
+}
+@media only screen and (max-width: 768px) {
+    .form{
+        width: 40%;
+        height: auto;
+        margin:20% 30%;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .form{
+        width: 80%;
+        height: auto;
+        margin:20% 10%;
+    }
 }
