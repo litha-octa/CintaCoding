@@ -1,0 +1,56 @@
+*{margin:0}
+/*WELCOME FILE*/
+nav{
+    width: 100%;
+    height: auto;
+    padding: 3% 5%;
+    display: flex;
+    flex-direction: row;
+}
+.titleNav{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    text-transform: capitalize;
+    float: left;
+}
+.btnNav{
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    font-family: sans-serif;
+    background-color: blue;
+    color:white;
+    float: right;
+    margin-left: 80%;
+    cursor: pointer;
+}
+.welPic{
+    width: 60%;
+    margin:0% 20%;
+}
+@media only screen and (max-width: 768px) {
+    .btnNav{
+        border-radius: 15px;
+        width: 10vw;
+        height: 30px;
+        margin-left: 50vw;
+    }
+    .welPic{
+        width: 110vw;
+        margin:5% 0%;
+    }
+}
+@media only screen and (max-width: 425px) {
+.btnNav{
+    border-radius: 15px;
+    padding: 5px 15px;
+    width: 25%;
+    height: 30px;
+    margin-left: 30vw;
+}
+}
+.bodyLogin{
+    background-color: orange;
+}
