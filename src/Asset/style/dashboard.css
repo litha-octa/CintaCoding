@@ -57,6 +57,7 @@
     text-transform: capitalize;
     margin-left: 6%;
     cursor: pointer;
+    font-weight: lighter;
 }
 @media only screen and (max-width: 768px) {
     .welcome{margin-left:50% }
@@ -80,4 +81,20 @@
         width:90%;
         margin : 0 0 0 5%;
     }
+}
+
+/*DETAIL PAGE*/
+.detail-title{
+    color: rgba(0, 0, 0, 0.52);
+    font-weight: bold;
+    font-size: 1.2em;
+    font-family: Arial;
+    margin: 10% 0 5% 16%;
+}
+.detail-body{
+    color: rgba(0, 0, 0, 0.35);
+    font-weight: bold;
+    font-size: 0.9em;
+    font-family: Arial;
+    margin: 0 0 0% 15%;
 }

@@ -54,14 +54,14 @@ const Login = () => {
                             console.log(password)
                         }}
                 />
+                <Link to='/Dashboard'>
                 <Button
                     colorScheme='blue'
                     style={{width:'100%',borderRadius: 30, fontFamily:'arial'}}
                 >
-                    <Link to='/Dashboard'>
                     Login
-                    </Link>
                 </Button>
+                </Link>
             </div>
 
 

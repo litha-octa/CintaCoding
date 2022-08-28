@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 import '../Asset/style/dashboard.css'
-import {Input, InputRightElement, InputGroup} from "@chakra-ui/react";
+import {Input, InputRightElement, InputGroup, Button} from "@chakra-ui/react";
 import { Search2Icon, ChatIcon } from '@chakra-ui/icons'
 import axios from "axios";
-import {getAllPost} from "../Asset/url";
+import {getAllPost, getDetailPost} from "../Asset/url";
 
 const Dashboard = () => {
     const userLogin = 'litha'
@@ -15,12 +16,13 @@ const Dashboard = () => {
             .get(getAllPost)
             .then((res)=>{
                 setPost(res.data)
-                console.log(post[2].title)
             })
             .catch((err)=>{
                 console.log(err)
             })
     },[])
+
+
     return(
         <div>
             <nav>
@@ -51,7 +53,15 @@ const Dashboard = () => {
                     </div>
                     <div className={'post-card2'}>
                         <div className={'comment'}><ChatIcon color='cornflowerblue'/>{commentLength}</div>
-                        <div className={'detail'}>detail</div>
+                        <Link to={`/Detail/${p.id}`}
+                        key = {p.id}>
+                        <div
+                            variant = 'link'
+                            colorScheme='blue'
+                            className={'detail'}
+                        >detail
+                        </div>
+                        </Link>
                     </div>
                     </>
                 ))}
