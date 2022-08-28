@@ -5,8 +5,7 @@ import Login from "./Screen/Login";
 import Welcome from './Screen/Welcome';
 import Dashboard from './Screen/Dashboard';
 import DetailPost from './Screen/DetailPost';
-
-
+import DetailUser from "./Screen/DetailUser";
 
 class Main extends Component {
   componentDidUpdate(){
@@ -24,6 +23,7 @@ class Main extends Component {
               <Route path="/Detail" element={<DetailPost/>}>
               <Route path=":detailId" element={<DetailPost/>} />
               </Route>
+              <Route path="/User" element={<DetailUser/>} />
             </Routes>
           </div>
         </div>

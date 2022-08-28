@@ -1,0 +1,24 @@
+.table{
+    width: 70%;
+    font-weight: bold;
+    font-family: Arial;
+    margin: 10% 0 0 15%;
+}
+.leftTable{
+    color: rgba(128, 128, 128, 0.67);
+    width: 25%;
+}
+.leftTable2{
+    color: rgba(128, 128, 128, 0.67);
+    width: 5%;
+}
+.rightTable{
+    width: 70%;
+    color:black;
+    padding-left: 10%;
+}
+.rowData{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5%;
+}

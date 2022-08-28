@@ -64,7 +64,9 @@ const DetailPost = () => {
     return(
         <div>
             <nav>
+                <Link to={'/Dashboard'}>
                 <div className={'titleNav'}>cinta coding</div>
+                </Link>
                 <div className={'welcome'}>welcome,</div>
                 <div className={'userLogin'}>Litha</div>
             </nav>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import '../Asset/style/dashboard.css'
-import {Input, InputRightElement, InputGroup, Button} from "@chakra-ui/react";
+import {Input, InputRightElement, InputGroup, Button, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
 import { Search2Icon, ChatIcon } from '@chakra-ui/icons'
 import axios from "axios";
 import {getAllPost, getDetailPost} from "../Asset/url";
@@ -53,7 +53,14 @@ const Dashboard = () => {
             <nav>
                 <div className={'titleNav'}>cinta coding</div>
                 <div className={'welcome'}>welcome,</div>
-                <div className={'userLogin'}>{userLogin}</div>
+                    <Menu isLazy>
+                        <MenuButton className={'userLogin'}>{userLogin}</MenuButton>
+                        <MenuList minWidth='130px' style={{borderRadius:'15px'}}>
+                            <Link to={'/User'}>
+                        <MenuItem style={{fontFamily:'arial',fontWeight:'bold', background:'white'}}>Detail Profile</MenuItem>
+                            </Link>
+                            </MenuList>
+                    </Menu>
             </nav>
             <div className={'container-dashboard'}>
                     <div className={'post-header'}>Post</div>
