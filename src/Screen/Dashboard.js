@@ -8,8 +8,33 @@ import {getAllPost, getDetailPost} from "../Asset/url";
 
 const Dashboard = () => {
     const userLogin = 'litha'
-    const commentLength = 10
+    const [comment, setComment] = useState()
     const [post, setPost] = useState([])
+
+    const checkName = (id) => {
+        if(id === 1){
+            return ('Leanne Graham')
+        }else if (id === 2){
+            return('Ervin Howell')
+        }else if (id === 3){
+            return('Clementine Bauch')
+        }else if(id ===4){
+            return('Patricia Lebsack')
+        }else if(id ===5){
+            return('Chelsey Dietrich')
+        }else if(id ===6){
+            return('Mrs. Dennis Schulist')
+        }else if(id ===7){
+            return('Kurtis Weissnat')
+        }else if(id ===8){
+            return('Nicholas Runolfsdottir V')
+        }else if(id ===9){
+            return('Glenna Reichert')
+        }
+        else{
+            return ('Clementina DuBuque')
+        }
+    }
 
     useEffect(()=>{
         axios
@@ -48,11 +73,11 @@ const Dashboard = () => {
                 {post.map((p, index) => (
                     <>
                     <div className={'post-card'}>
-                        <div className={'author'}>{p.userId}</div>
+                        <div className={'author'}>{checkName(p.userId)}</div>
                         <div className={'post-title'}>{p.body}</div>
                     </div>
                     <div className={'post-card2'}>
-                        <div className={'comment'}><ChatIcon color='cornflowerblue'/>{commentLength}</div>
+                        <div className={'comment'}><ChatIcon color='cornflowerblue' style={{marginRight:'15px'}}/>5</div>
                         <Link to={`/Detail/${p.id}`}
                         key = {p.id}>
                         <div
