@@ -4,7 +4,7 @@ import {getDetailPost} from "../Asset/url";
 import axios from "axios";
 import '../Asset/style/dashboard.css'
 import {ArrowBackIcon, ChatIcon} from "@chakra-ui/icons";
-import {Button} from "@chakra-ui/react";
+import {Button, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
 
 const DetailPost = () => {
     const params = useParams();
@@ -68,7 +68,14 @@ const DetailPost = () => {
                 <div className={'titleNav'}>cinta coding</div>
                 </Link>
                 <div className={'welcome'}>welcome,</div>
-                <div className={'userLogin'}>Litha</div>
+                <Menu isLazy>
+                    <MenuButton className={'userLogin'}>Litha</MenuButton>
+                    <MenuList minWidth='130px' style={{borderRadius:'15px'}}>
+                        <Link to={'/User'}>
+                            <MenuItem style={{fontFamily:'arial',fontWeight:'bold', background:'white'}}>Detail Profile</MenuItem>
+                        </Link>
+                    </MenuList>
+                </Menu>
             </nav>
             <div className={'container-dashboard'}>
                 <div className={'post-header'}>Post</div>
