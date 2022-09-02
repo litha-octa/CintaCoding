@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import '../Asset/style/dashboard.css'
-import {Input, InputRightElement, InputGroup, Button, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
+import {Input, InputRightElement, InputGroup, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
 import { Search2Icon, ChatIcon } from '@chakra-ui/icons'
 import axios from "axios";
-import {getAllPost, getDetailPost} from "../Asset/url";
+import {getAllPost} from "../Asset/url";
 
 const Dashboard = () => {
     const userLogin = 'litha'
-    const [comment, setComment] = useState()
     const [post, setPost] = useState([])
 
     const checkName = (id) => {
@@ -59,6 +58,9 @@ const Dashboard = () => {
                             <Link to={'/User'}>
                         <MenuItem style={{fontFamily:'arial',fontWeight:'bold', background:'white'}}>Detail Profile</MenuItem>
                             </Link>
+                            <Link to={'/'}>
+                                <MenuItem style={{fontFamily:'arial',fontWeight:'bold', background:'white'}}>Log out</MenuItem>
+                            </Link>
                             </MenuList>
                     </Menu>
             </nav>
@@ -97,8 +99,6 @@ const Dashboard = () => {
                     </div>
                     </>
                 ))}
-
-                {/*<div>{post[0].title}</div>*/}
             </div>
         </div>
     )

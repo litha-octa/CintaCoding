@@ -9,14 +9,14 @@ const Welcome = () => {
         <div>
             <nav>
                 <div className={'titleNav'}>cinta coding</div>
+                <Link to ='/Login' className={'btnNav'}>
                 <Button
-                    className={'btnNav'}
+
                     colorScheme='blue'
                     style={{borderRadius: 30, fontFamily:'arial'}}>
-                    <Link to ='/Login'>
                         Login
-                    </Link>
                 </Button>
+                </Link>
 
             </nav>
             <img src={LoginPic} alt='pic' className={'welPic'}/>

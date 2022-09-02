@@ -3,28 +3,38 @@ import '../Asset/style/login.css'
 import {Button, Input} from "@chakra-ui/react";
 import {getUser} from "../Asset/url";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
     const [allUser, setAllUser] = useState([])
     const [username, setUsername] = useState()
     const [password, setPassword]= useState()
+    const navigate = useNavigate()
 
+        function check(x){
+            const cek = allUser.includes(x)
+            console.log(cek)
+            if (cek === true){
+                alert('Login Berhasil !')
+                const timer = setTimeout(() => {
+                    navigate('/Dashboard')
+                }, 3000);
+                return () => clearTimeout(timer);
 
+            }else{
+                return alert('username atau password salah')
+            }
+        }
     useEffect(()=>{
         axios
             .get(getUser)
             .then((res)=>{
-                setAllUser(res.data)
-                console.log(res.data)
+                setAllUser(res.data.map(item => item.name))
+                console.log(res.data.map(item => item.name))
                 })
             .catch((err)=>{
                 console.log(err)
             })
-        if(username !== password){
-            console.log (username, 'oke')
-        } else {console.log('err')}
-
 
     }, [])
     return(
@@ -38,8 +48,6 @@ const Login = () => {
                        value={username}
                        onChange={(e)=>{
                            setUsername(e.target.value)
-                           console.log(username)
-
                        }}
                 />
                 <Input
@@ -51,17 +59,18 @@ const Login = () => {
                         value={password}
                         onChange={(e)=>{
                             setPassword(e.target.value)
-                            console.log(password)
                         }}
                 />
-                <Link to='/Dashboard'>
+
                 <Button
                     colorScheme='blue'
                     style={{width:'100%',borderRadius: 30, fontFamily:'arial'}}
+                    onClick={()=>{
+                        check(username && password)
+                    }}
                 >
                     Login
                 </Button>
-                </Link>
             </div>
 
 
