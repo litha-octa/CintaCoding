@@ -40,7 +40,6 @@ const Post = (props) => {
                       key = {id}>
                     <div
                         variant = 'link'
-                        colorScheme='blue'
                         className={'detail'}
                     >detail
                     </div>
