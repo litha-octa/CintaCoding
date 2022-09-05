@@ -5,47 +5,26 @@ import {Input, InputRightElement, InputGroup, Menu, MenuButton, MenuItem, MenuLi
 import { Search2Icon, ChatIcon } from '@chakra-ui/icons'
 import axios from "axios";
 import {getAllPost} from "../Asset/url";
+import Pagination from "../Asset/component/Pagination";
+import Post from "../Asset/component/Post";
 
 const Dashboard = () => {
+    const datalimit = 10
     const userLogin = 'litha'
     const [post, setPost] = useState([])
-
-    const checkName = (id) => {
-        if(id === 1){
-            return ('Leanne Graham')
-        }else if (id === 2){
-            return('Ervin Howell')
-        }else if (id === 3){
-            return('Clementine Bauch')
-        }else if(id ===4){
-            return('Patricia Lebsack')
-        }else if(id ===5){
-            return('Chelsey Dietrich')
-        }else if(id ===6){
-            return('Mrs. Dennis Schulist')
-        }else if(id ===7){
-            return('Kurtis Weissnat')
-        }else if(id ===8){
-            return('Nicholas Runolfsdottir V')
-        }else if(id ===9){
-            return('Glenna Reichert')
-        }
-        else{
-            return ('Clementina DuBuque')
-        }
-    }
 
     useEffect(()=>{
         axios
             .get(getAllPost)
-            .then((res)=>{
-                setPost(res.data)
+            .then((response) => {
+                if (response.ok) return response.json();
+                throw new Error('something went wrong while requesting posts');
             })
+            .then((post) => setPost(post))
             .catch((err)=>{
                 console.log(err)
             })
     },[])
-
 
     return(
         <div>
@@ -79,26 +58,20 @@ const Dashboard = () => {
                     children={<Search2Icon />}
                 />
                 </InputGroup>
-                {post.map((p, index) => (
+                {/*PAGIANTION */}
+                {post.length > 0 ? (
                     <>
-                    <div className={'post-card'}>
-                        <div className={'author'}>{checkName(p.userId)}</div>
-                        <div className={'post-title'}>{p.body}</div>
-                    </div>
-                    <div className={'post-card2'}>
-                        <div className={'comment'}><ChatIcon color='cornflowerblue' style={{marginRight:'15px'}}/>5</div>
-                        <Link to={`/Detail/${p.id}`}
-                        key = {p.id}>
-                        <div
-                            variant = 'link'
-                            colorScheme='blue'
-                            className={'detail'}
-                        >detail
-                        </div>
-                        </Link>
-                    </div>
+                        <Pagination
+                            data={post}
+                            RenderComponent={Post}
+                            title="Posts"
+                            pageLimit={post.length / datalimit}
+                            dataLimit={datalimit}
+                        />
                     </>
-                ))}
+                ) : (
+                    <h1>No Posts to display</h1>
+                )}
             </div>
         </div>
     )
