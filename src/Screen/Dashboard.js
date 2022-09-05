@@ -12,19 +12,25 @@ const Dashboard = () => {
     const datalimit = 10
     const userLogin = 'litha'
     const [post, setPost] = useState([])
+    const [error, setError] = useState('');
 
     useEffect(()=>{
         axios
             .get(getAllPost)
-            .then((response) => {
-                if (response.ok) return response.json();
-                throw new Error('something went wrong while requesting posts');
+            // .then((response) => {
+            //     if (response.ok) return response.json();
+            //     throw new Error('something went wrong while requesting posts');
+            // })
+            // .then((post) => setPost(post))
+            // .catch((error) => setError(error.message));
+            .then((res)=>{
+                setPost(res.data)
             })
-            .then((post) => setPost(post))
             .catch((err)=>{
                 console.log(err)
             })
-    },[])
+    },[]);
+
 
     return(
         <div>
@@ -65,7 +71,7 @@ const Dashboard = () => {
                             data={post}
                             RenderComponent={Post}
                             title="Posts"
-                            pageLimit={post.length / datalimit}
+                            pageLimit={datalimit}
                             dataLimit={datalimit}
                         />
                     </>

@@ -48,5 +48,6 @@
 .next.disabled {
     pointer-events: none;
     box-shadow: none;
-    color: #999;
+    color: white;
+    background-color: #999999;
 }

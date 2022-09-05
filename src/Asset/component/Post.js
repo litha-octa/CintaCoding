@@ -27,7 +27,7 @@ const Post = (props) => {
             return ('Clementina DuBuque')
         }
     }
-    const { userId, id, title, body } = props.data;
+    const { userId, id, body } = props.data;
     return(
         <>
             <div className={'post-card'}>

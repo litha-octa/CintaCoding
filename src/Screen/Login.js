@@ -15,10 +15,9 @@ const Login = () => {
             const cek = allUser.includes(x)
             console.log(cek)
             if (cek === true){
-                alert('Login Berhasil !')
                 const timer = setTimeout(() => {
                     navigate('/Dashboard')
-                }, 3000);
+                }, 1000);
                 return () => clearTimeout(timer);
 
             }else{
